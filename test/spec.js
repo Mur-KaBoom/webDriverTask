@@ -25,7 +25,7 @@ describe('McDonalds: ', function () {
         expect(await browser.getTitle()).to.be.equal("McDonald's: Burgers, Fries & More. Quality Ingredients.");
     });
 
-    it('should display search results for valid search query', async function (done) {
+    it('should display search results for valid search query', function (done) {
         const searchFromMainPage = browser.findElement(By.css('.right__rail .link[href="/us/en-us/search-results.html"]'));
         searchFromMainPage.click();
         const searchField = browser.findElement(By.xpath('//input[@id="search"]'));
