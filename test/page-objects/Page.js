@@ -1,37 +1,37 @@
-import { $ } from "protractor";
+const Footer = require ("./Footer");
+const Header = require ("./Header");
 const {
     browser,
     element,
-    ExpectedConditions
+    ExpectedConditions,
+    $
 } = require("protractor");
-const {
-    By
-} = require("selenium-webdriver");
 
-export default class Page {
+class Page {
     constructor() {
+        this.header = new Header();
+        this.footer = new Footer();
     }
 
     async open (path) {
         await browser.get(path);
     }
 
-    get logo() {
-        return $('.nav__logo .component-logo');
+    wait (waitInMilliseconds) {
+        return browser.sleep(waitInMilliseconds);
     }
 
-    changeLanguage(language) {
-        const languageDropdown = element(By.css('.desktop-nav .language-toggle'));
-        browser.wait(ExpectedConditions.presenceOf(languageDropdown), 30000);
-        languageDropdown.click();
-        if(language == 'English') {
-            const englishLanguage = element(By.css('.desktop-nav .mcd-language-toggle .language-items :first-child .language'));
-            englishLanguage.click();
-        }
-        if(language == 'Spanish') {
-            const englishLanguage = element(By.css('.desktop-nav .mcd-language-toggle .language-items :last-child .language'));
-            englishLanguage.click();
-        }        
+    getCurrentUrl() {
+        return browser.getCurrentUrl();
     }
 
-}   
+    getTitle() {
+        return browser.getTitle();
+    }
+
+    waitForPageLoading() {
+        return browser.waitForAngular();
+    }
+}
+
+module.exports = Page;
