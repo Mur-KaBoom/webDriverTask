@@ -30,7 +30,7 @@ class Element {
         this.element.getLocation().then((location) => {
             return browser.driver.executeScript('window.scrollTo(0,arguments[0]);', location.y);
         });
-    };
+    }
 }
 
 module.exports = Element;
