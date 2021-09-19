@@ -7,6 +7,7 @@ class Element {
     }
 
     click () {
+        this.scrollTo();
         return this.element.click();
     }
 

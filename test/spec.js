@@ -31,7 +31,6 @@ describe('McDonalds: ', function () {
         searchPage.searchResults.waitForElement();
         searchPage.loadMoreResultsButton.waitForElement();
         let amountOfResultsBeforeLoadMore = await searchPage.searchResults.getCount();
-        searchPage.loadMoreResultsButton.scrollTo();
         searchPage.loadMoreResultsButton.click();
         expect(await searchPage.searchResults.getCount()).to.be.greaterThan(amountOfResultsBeforeLoadMore);
     });
