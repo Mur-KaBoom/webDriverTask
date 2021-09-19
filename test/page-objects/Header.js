@@ -10,6 +10,8 @@ class Header {
         this.searchIcon = new Element ('.desktop-nav .icon-search');
         this.viewFullMenuButton = new Element ('.desktop-nav .view-full-menu.d-none .button');
         this.logo = new Element ('.desktop-nav .component-logo');
+        this.spanishLanguageButton = new Element ('.desktop-nav .external-delivery[aria-label = "Ordena Ahora"]');
+        this.englishLanguageButton = new Element ('.desktop-nav .external-delivery[aria-label = "Order Now"]');
     }
 }
 

@@ -10,14 +10,15 @@ class SearchPage extends Page {
         this.clearSearchField = new Element ('.mcd-search__input--close-btn');
         this.searchResults = new Collection ('.mcd-card--result__without-image');
         this.readMoreAboutResultButtons = new Collection ('.small.link');
-        this.loadMoreResultsButton = new Element ('.mcd-search--load-more__btn');
+        this.loadMoreResultsButton = new Element ('.btn[ng-click="loadSearchResults(false)"]');
+        this.noSearchResults = new Element ('.mcd-search__no-item');
+        this.resultsAmount = new Element ('.mcd-filter__carousel__item-link .ng-binding:last-child');
     }
 
     runSearch(searchTerm) {
         this.searchField.sendKeys(searchTerm);
         this.runSearchButton.click();
     }
-
 
 }
 

@@ -29,9 +29,30 @@ class Page {
         return browser.getTitle();
     }
 
+    // closeLeaveFeedbackPopup () {
+
+    // }
+
+    waitForPageToChangeLanguageTo(language) {
+        if(language === 'Eng' || language === 'English') {
+            browser.wait(ExpectedConditions.presenceOf(this.header.englishLanguageButton), 30000);
+        } else if (language === 'Esp' || language === 'Spanish') {
+            browser.wait(ExpectedConditions.presenceOf(this.header.spanishLanguageButton), 30000);
+        } else {
+            throw new Error (`Current page doesn't support ${language} language`);
+        }
+    }
+
     waitForPageLoading() {
         return browser.waitForAngular();
+    }    
+
+    getTextOutOfBrackets(stringWithBrackets) {
+        const regEx = /\(([^)]+)\)/;
+        const stringWithoutBrackets = regEx.exec(stringWithBrackets);
+        return stringWithoutBrackets[1];
     }
+    
 }
 
 module.exports = Page;

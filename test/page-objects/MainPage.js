@@ -1,5 +1,7 @@
 const Page = require ('./Page');
 const Collection = require ('./Collection');
+const SearchPage = require ('./SearchPage');
+const searchPage = new SearchPage ();
 
 class MainPage extends Page {
 
@@ -11,6 +13,12 @@ class MainPage extends Page {
 
     open () {
         return super.open('https://www.mcdonalds.com/');
+    }
+
+    performSearchOf (searchTerm) {
+        this.header.searchIcon.click();
+        searchPage.searchField.waitForElement();
+        searchPage.runSearch(searchTerm);
     }
 
 }
