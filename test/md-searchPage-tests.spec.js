@@ -4,15 +4,11 @@ const SearchPage = require("./page-objects/SearchPage");
 const mainPage = new MainPage();
 const searchPage = new SearchPage();
 
-describe('McDonalds: ', function () {
+describe('McDonalds Search Page: ', function () {
 
     beforeEach(async function () {
         this.timeout(10000)
         await mainPage.open();
-    });
-
-    it('should have a title', async function () {
-        expect(await mainPage.getTitle()).to.be.equal("McDonald's: Burgers, Fries & More. Quality Ingredients.");
     });
 
     it('should display search results for valid search query', async function () {
@@ -34,13 +30,4 @@ describe('McDonalds: ', function () {
         searchPage.loadMoreResultsButton.click();
         expect(await searchPage.searchResults.getCount()).to.be.greaterThan(amountOfResultsBeforeLoadMore);
     });
-
-    it('should change language', async function () {
-        mainPage.header.additionalLinks.clickTextInCollection('Language');
-        mainPage.header.languageItems.waitForElement();
-        mainPage.header.languageItems.clickTextInCollection('Español');
-        mainPage.header.spanishLanguageButton.waitForElement();
-        expect(await mainPage.getTitle()).to.be.equal('McDonald’s: Hamburguesas, Papitas y Más. Ingredientes de Calidad');
-    });
-
 });

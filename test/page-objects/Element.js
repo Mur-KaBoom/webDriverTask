@@ -28,7 +28,7 @@ class Element {
     }
 
     scrollTo() {
-        this.element.getLocation().then((location) => {
+        return this.element.getLocation().then((location) => {
             return browser.driver.executeScript('window.scrollTo(0,arguments[0]);', location.y);
         });
     }

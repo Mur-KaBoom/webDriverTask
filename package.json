@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webdriver-manager start",
-    "test": "protractor test/conf.js"
+    "test": "protractor test/conf.js",
+    "yargsTest": "node ./test/page-objects/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,10 +26,9 @@
   "dependencies": {
     "chai": "^4.3.4",
     "config": "^3.3.6",
-    "fs-extra": "^10.0.0",
     "mocha": "^9.1.0",
     "protractor": "^7.0.0",
     "selenium-webdriver": "^4.0.0-beta.4",
-    "winston": "^3.3.3"
+    "yargs": "^17.1.1"
   }
 }
