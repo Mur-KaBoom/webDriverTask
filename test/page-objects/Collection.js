@@ -1,4 +1,5 @@
 class Collection {
+
     constructor (selector) {
         this.collection = element.all(by.css(selector));
     }
@@ -11,7 +12,7 @@ class Collection {
         return this.collection.getText();
     }
 
-    waitForElement() {
+    waitForElement () {
         return browser.wait(ExpectedConditions.presenceOf(this.collection), 30000);
     }
 
