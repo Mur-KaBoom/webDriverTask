@@ -7,10 +7,10 @@ exports.config = {
     specs : ['./**/*.spec.js'],
     capabilities: {
         browserName : 'chrome',
-        chromeOptions: {
-            args: ['--window-size=1920,1080']
-        },
-        shardTestFiles: true,
-        maxInstances: 2
+        // chromeOptions: {
+        //     args: ['--window-size=1920,1080']
+        // },
+        // // shardTestFiles: true,
+        // // maxInstances: 2
     },
 }

@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "update-webdriver": "webdriver-manager update",
     "start": "webdriver-manager start",
-    "test": "protractor test/conf.js"
+    "test": "protractor test/conf.js",
+    "hub": ".\\start-hub.bat",
+    "node": ".\\se-standard-node-conf.bat",
+    "node-chrome": ".\\se-node-chrome-3.141.59.bat"
   },
   "repository": {
     "type": "git",

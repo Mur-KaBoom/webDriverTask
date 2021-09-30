@@ -1,11 +1,7 @@
 const Footer = require ("./Footer");
 const Header = require ("./Header");
-const {
-    browser,
-    element,
-    ExpectedConditions,
-    $
-} = require("protractor");
+const { browser } = require("protractor");
+
 
 class Page {
     constructor () {

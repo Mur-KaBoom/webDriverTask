@@ -15,9 +15,9 @@ class SearchPage extends Page {
         this.resultsAmount = new Element ('.mcd-filter__carousel__item-link .ng-binding:last-child');
     }
 
-    runSearch(searchTerm) {
-        this.searchField.sendKeys(searchTerm);
-        this.runSearchButton.click();
+    async runSearch(searchTerm) {
+        await this.searchField.sendKeys(searchTerm);
+        return this.runSearchButton.click();
     }
 
 }

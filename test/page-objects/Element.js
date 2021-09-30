@@ -2,13 +2,29 @@ const { browser } = require("protractor");
 
 class Element {
 
-    constructor (selector) {
-        this.element = element(by.css(selector));
+    constructor (selector, id) {
+        if(id) {
+            this.element = element(by.id(selector));
+        } else {
+            this.element = element(by.css(selector));
+        }
     }
 
-    click () {
+    async click () {
         this.scrollTo();
-        return this.element.click();
+        await this.element.click();
+        await this.highlightWithJS(this.element);
+    }
+
+    highlightWithJS(elementToHighlight) {
+        let background;
+        return elementToHighlight.getCssValue("backgroundColor").then(function (color) {
+            background = color;
+        }).then(function () {
+            return browser.executeScript("arguments[0].style.backgroundColor = '" + "red" + "'", elementToHighlight)
+        }).then(function () {
+            return browser.executeScript("arguments[0].style.backgroundColor = '" + background + "'", elementToHighlight);
+        })
     }
 
     sendKeys (searchTerm) {
