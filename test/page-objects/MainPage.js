@@ -15,10 +15,10 @@ class MainPage extends Page {
         return super.open('https://www.mcdonalds.com/');
     }
 
-    performSearchOf (searchTerm) {
-        this.header.searchIcon.click();
-        searchPage.searchField.waitForElement();
-        searchPage.runSearch(searchTerm);
+    async performSearchOf (searchTerm) {
+        await this.header.searchIcon.click();
+        await searchPage.searchField.waitForElement();
+        await searchPage.runSearch(searchTerm);
     }
 
 }

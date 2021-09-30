@@ -14,10 +14,10 @@ describe('McDonalds Main Page: ', function () {
     });
 
     it('should change language', async function () {
-        mainPage.header.additionalLinks.clickTextInCollection('Language');
-        mainPage.header.languageItems.waitForElement();
-        mainPage.header.languageItems.clickTextInCollection('Español');
-        mainPage.header.spanishLanguageButton.waitForElement();
+        await mainPage.header.additionalLinks.clickTextInCollection('Language');
+        await mainPage.header.languageItems.waitForElement();
+        await mainPage.header.languageItems.clickTextInCollection('Español');
+        await mainPage.header.spanishLanguageButton.waitForElement();
         expect(await mainPage.getTitle()).to.be.equal('McDonald’s: Hamburguesas, Papitas y Más. Ingredientes de Calidad');
     });
 

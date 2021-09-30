@@ -12,22 +12,22 @@ describe('McDonalds Search Page: ', function () {
     });
 
     it('should display search results for valid search query', async function () {
-        mainPage.performSearchOf('Nuggets');
-        searchPage.searchResults.waitForElement();
+        await mainPage.performSearchOf('Nuggets');
+        await searchPage.searchResults.waitForElement();
         expect(await searchPage.searchResults.getCount()).to.be.greaterThan(0);
     });
 
     it('should display "no search results" for invalid search query', async function () {
-        mainPage.performSearchOf('sldk;aslkd');
+        await mainPage.performSearchOf('sldk;aslkd');
         expect(await searchPage.noSearchResults.elementIsDisplayed());
     });
 
     it('should display more results after click on Load More button', async function () {
-        mainPage.performSearchOf('Nuggets');
-        searchPage.searchResults.waitForElement();
-        searchPage.loadMoreResultsButton.waitForElement();
+        await mainPage.performSearchOf('Nuggets');
+        await searchPage.searchResults.waitForElement();
+        await searchPage.loadMoreResultsButton.waitForElement();
         let amountOfResultsBeforeLoadMore = await searchPage.searchResults.getCount();
-        searchPage.loadMoreResultsButton.click();
+        await searchPage.loadMoreResultsButton.click();
         expect(await searchPage.searchResults.getCount()).to.be.greaterThan(amountOfResultsBeforeLoadMore);
     });
 });
